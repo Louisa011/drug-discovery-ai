@@ -22,7 +22,7 @@ Python 3.10, RDKit 2026.9.1.
 - Computed Tanimoto similarity: one molecule against the rest, then all-vs-all
 - Built a 7×7 similarity matrix and plotted it → `outputs/similarity_heatmap.png`
 
-**Molecules used:** [your seven]
+**Molecules used:** Omeprazole, Aspirin, Diazepam, Ibuprofen, Amoxicillin, Acetaminophen(paracetamol), Levothyroxine
 
 **Results**
 
