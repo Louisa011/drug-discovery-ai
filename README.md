@@ -14,18 +14,33 @@ Python 3.10, RDKit 2026.9.1.
 
 ## Week 01 — SMILES, fingerprints and similarity
 
-**Done so far**
+**Done**
 
 - Loaded 7 drugs as SMILES from PubChem and parsed them with RDKit
-- Drew them as a labelled grid, saved to `outputs/molecules.png`
+- Drew them as a labelled grid → `outputs/molecules.png`
+- Generated Morgan fingerprints (radius 2, 2048 bits) using `rdFingerprintGenerator`
+- Computed Tanimoto similarity: one molecule against the rest, then all-vs-all
+- Built a 7×7 similarity matrix and plotted it → `outputs/similarity_heatmap.png`
 
-**Molecules used:** [list your seven here]
+**Molecules used:** [your seven]
+
+**Results**
+
+- Most similar pair: [names] at [score]
+- Least similar pair: [names] at [score]
+- [anything that surprised you, or "nothing stood out yet"]
+
+**Open question**
+
+Whether the fingerprint clustering matches real drug-family groupings — I don't
+yet know enough medicinal chemistry to judge this. Returning to it once I know
+more about what these drugs actually do and how they're classified.
 
 **Still to do**
 
-- Morgan fingerprints and a Tanimoto similarity heatmap
 - logP vs molecular weight scatter
-- Radius 2/3/4 comparison
+- Fingerprint radius 2/3/4 comparison
+- Revisit the clustering question above
 
 ## Gotchas
 
@@ -41,6 +56,8 @@ Things that cost me time, recorded so they don't cost it twice.
   A typo fails silently and only surfaces later as a confusing crash, so check
   for `None` right after parsing.
 
-## What I learned
+  - **`AllChem.GetMorganFingerprintAsBitVect` is deprecated.** Most tutorials
+  online still use it. Current API is `rdFingerprintGenerator.GetMorganGenerator
+  (radius=2, fpSize=2048)` then `gen.GetFingerprint(mol)`.
 
-- Having the smiles it's easy to code to view the structiure but that does not answer how the structure is formed. Still something I am learning
+
