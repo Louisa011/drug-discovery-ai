@@ -59,5 +59,6 @@ Things that cost me time, recorded so they don't cost it twice.
   - **`AllChem.GetMorganFingerprintAsBitVect` is deprecated.** Most tutorials
   online still use it. Current API is `rdFingerprintGenerator.GetMorganGenerator
   (radius=2, fpSize=2048)` then `gen.GetFingerprint(mol)`.
+- the scatter plot visualizes just the 7 molecules against each other as a single summary, however the SimilarityMaps.GetSimilarityMapFromWeights visualizes inside a single molecule, colouring each ataom based on how ,much it contributes to property like partial charge or LogP
 
 
